@@ -2,7 +2,7 @@
 
 namespace Base3Tools\Adviser\Api;
 
-use Api\IBase;
+use Base3\Api\IBase;
 
 interface IAdviser extends IBase {
 

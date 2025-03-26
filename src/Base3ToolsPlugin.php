@@ -2,8 +2,8 @@
 
 namespace Base3Tools;
 
-use Api\IPlugin;
-use Base3\ServiceLocator;
+use Base3\Api\IPlugin;
+use Base3\Core\ServiceLocator;
 
 class Base3ToolsPlugin implements IPlugin {
 

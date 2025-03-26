@@ -2,9 +2,9 @@
 
 namespace Base3Tools\Status\Session;
 
-use Base3\ServiceLocator;
+use Base3\Core\ServiceLocator;
 use Base3Tools\Status\Api\IStatusHandler;
-use Api\ICheck;
+use Base3\Api\ICheck;
 
 class SessionStatusHandler implements IStatusHandler, ICheck {
 

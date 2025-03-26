@@ -2,7 +2,7 @@
 
 namespace Base3Tools\Observation\Api;
 
-use Api\IBase;
+use Base3\Api\IBase;
 
 interface IObserver extends IBase {
 

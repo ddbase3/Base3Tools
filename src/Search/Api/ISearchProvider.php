@@ -2,6 +2,6 @@
 
 namespace Base3Tools\Search\Api;
 
-use Api\IOutput;
+use Base3\Api\IOutput;
 
 interface ISearchProvider extends IOutput {}

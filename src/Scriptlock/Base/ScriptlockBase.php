@@ -2,7 +2,7 @@
 
 namespace Base3Tools\Scriptlock\Base;
 
-use Base3\ServiceLocator;
+use Base3\Core\ServiceLocator;
 use Base3Tools\Scriptlock\Api\IScriptlock;
 
 class ScriptlockBase implements IScriptlock {

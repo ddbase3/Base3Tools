@@ -2,7 +2,7 @@
 
 namespace Base3Tools\Desktop\Api;
 
-use Api\IBase;
+use Base3\Api\IBase;
 
 interface IDesktop extends IBase {
 

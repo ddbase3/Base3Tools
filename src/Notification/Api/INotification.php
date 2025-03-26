@@ -2,7 +2,7 @@
 
 namespace Base3Tools\Notification\Api;
 
-use Api\IOutput;
+use Base3\Api\IOutput;
 
 interface INotification {
 

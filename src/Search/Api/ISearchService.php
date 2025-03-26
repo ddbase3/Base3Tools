@@ -2,7 +2,7 @@
 
 namespace Base3Tools\Search\Api;
 
-use Api\IBase;
+use Base3\Api\IBase;
 
 interface ISearchService extends IBase {
 

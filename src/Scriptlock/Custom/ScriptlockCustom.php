@@ -2,9 +2,9 @@
 
 namespace Base3Tools\Scriptlock\Custom;
 
-use Base3\ServiceLocator;
+use Base3\Core\ServiceLocator;
 use Base3Tools\Scriptlock\Api\IScriptlock;
-use Api\ICheck;
+use Base3\Api\ICheck;
 
 class ScriptlockCustom implements IScriptlock, ICheck {
 

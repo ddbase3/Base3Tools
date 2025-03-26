@@ -2,6 +2,7 @@
 
 namespace Base3Tools\Observation\Base;
 
+use Base3\Core\ServiceLocator;
 use Base3Tools\Observation\Api\IObservation;
 
 class Observation implements IObservation {
@@ -9,7 +10,7 @@ class Observation implements IObservation {
 	private $classmap;
 
 	public function __construct() {
-		$servicelocator = \Base3\ServiceLocator::getInstance();
+		$servicelocator = ServiceLocator::getInstance();
 		$this->classmap = $servicelocator->get('classmap');
 	}
 

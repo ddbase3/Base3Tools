@@ -2,12 +2,12 @@
 
 namespace Base3Tools\Mailer\Full;
 
-use Base3\ServiceLocator;
+use Base3\Core\ServiceLocator;
 use Base3Tools\Mailer\Api\IMailer;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-use Api\ICheck;
+use Base3\Api\ICheck;
 
 class FullMailer implements IMailer, ICheck {
 

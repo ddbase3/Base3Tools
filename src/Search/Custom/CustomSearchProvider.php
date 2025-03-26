@@ -2,7 +2,7 @@
 
 namespace Base3Tools\Search\Custom;
 
-use Base3\ServiceLocator;
+use Base3\Core\ServiceLocator;
 use Base3Tools\Search\Api\ISearchProvider;
 
 class CustomSearchProvider implements ISearchProvider {

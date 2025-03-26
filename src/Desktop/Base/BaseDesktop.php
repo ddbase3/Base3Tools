@@ -2,9 +2,9 @@
 
 namespace Base3Tools\Desktop\Base;
 
-use Base3\ServiceLocator;
+use Base3\Core\ServiceLocator;
 use Base3Tools\Desktop\Api\IDesktop;
-use Api\ICheck;
+use Base3\Api\ICheck;
 
 class BaseDesktop implements IDesktop, ICheck {
 
