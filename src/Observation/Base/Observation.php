@@ -32,7 +32,7 @@ class Observation implements IObservation {
 	public function notifyObservers($name, $notificationType = null, $notificationObject = null) {
 		$data = $this->getData($name);
 		foreach ($data as $name) {
-			$observer = $this->classmap->getInstanceByInterfaceName('Base3Tools\\Observation\\Api\\IObserver', $name);
+			$observer = $this->classmap->getInstanceByInterfaceName(\Base3Tools\Observation\Api\IObserver::class, $name);
 			if ($observer != null) $observer->notify($notificationType, $notificationObject);
 		}
 	}

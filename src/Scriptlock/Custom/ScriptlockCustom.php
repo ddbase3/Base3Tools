@@ -20,7 +20,7 @@ class ScriptlockCustom implements IScriptlock, ICheck {
 	// Implementation of IScriptlock
 
 	public function check() {
-		$conditions = $this->classmap->getInstancesByInterface("Base3Tools\\Scriptlock\\Api\\IScriptlockCondition");
+		$conditions = $this->classmap->getInstancesByInterface(\Base3Tools\Scriptlock\Api\IScriptlockCondition::class);
 		foreach ($conditions as $condition)
 			if ($condition->activated() && $condition->check()) return true;
 		return false;

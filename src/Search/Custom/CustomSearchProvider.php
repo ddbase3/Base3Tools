@@ -28,7 +28,7 @@ class CustomSearchProvider implements ISearchProvider {
 
 		$q = $_REQUEST["q"];
 
-		$searchservices = $this->classmap->getInstancesByInterface("Base3Tools\\Search\\Api\\ISearchService");
+		$searchservices = $this->classmap->getInstancesByInterface(\Base3Tools\Search\Api\ISearchService::class);
 		foreach ($searchservices as $searchservice)
 			$result = array_merge($result, $searchservice->search($q));
 
