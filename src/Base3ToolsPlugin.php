@@ -3,14 +3,15 @@
 namespace Base3Tools;
 
 use Base3\Api\IPlugin;
+use Base3\Api\IContainer;
 use Base3\Core\ServiceLocator;
 
 class Base3ToolsPlugin implements IPlugin {
 
 	private $servicelocator;
 
-	public function __construct() {
-		$this->servicelocator = ServiceLocator::getInstance();
+	public function __construct(IContainer $container) {
+		$this->servicelocator = $container;
 	}
 
 	// Implementation of IBase
