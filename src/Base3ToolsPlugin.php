@@ -7,6 +7,12 @@ use Base3\Api\IContainer;
 
 class Base3ToolsPlugin implements IPlugin {
 
+        private $container;
+
+        public function __construct(IContainer $container) {
+                $this->container = $container;
+        }
+
 	// Implementation of IBase
 
 	public function getName() {
