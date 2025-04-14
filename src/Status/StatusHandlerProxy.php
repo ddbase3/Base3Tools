@@ -2,9 +2,10 @@
 
 namespace Base3Tools\Status;
 
+use Base3\Api\ICheck;
 use Base3Tools\Status\Api\IStatusHandler;
 
-class StatusHandlerProxy implements IStatusHandler {
+class StatusHandlerProxy implements IStatusHandler, ICheck {
 
 	private $connector;
 
@@ -20,4 +21,9 @@ class StatusHandlerProxy implements IStatusHandler {
 		$this->connector->set($data);
 	}
 
+	// Implementation of ICheck
+
+	public function checkDependencies() {
+		return $this->connector instanceof ICheck ? $this->connector->checkDependencies() : [];
+	}
 }
