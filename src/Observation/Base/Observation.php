@@ -2,16 +2,15 @@
 
 namespace Base3Tools\Observation\Base;
 
-use Base3\Core\ServiceLocator;
+use Base3\Api\IClassMap;
 use Base3Tools\Observation\Api\IObservation;
 
 class Observation implements IObservation {
 
 	private $classmap;
 
-	public function __construct() {
-		$servicelocator = ServiceLocator::getInstance();
-		$this->classmap = $servicelocator->get('classmap');
+	public function __construct(IClassMap $classmap) {
+		$this->classmap = $classmap;
 	}
 
 	// Implementation of IObservation

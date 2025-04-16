@@ -2,17 +2,16 @@
 
 namespace Base3Tools\Search\Custom;
 
-use Base3\Core\ServiceLocator;
+use Base3\Api\IClassMap;
 use Base3Tools\Search\Api\ISearchProvider;
+use Base3Tools\Search\Api\ISearchService;
 
 class CustomSearchProvider implements ISearchProvider {
 
-	private $servicelocator;
 	private $classmap;
 
-	public function __construct() {
-		$this->servicelocator = ServiceLocator::getInstance();
-		$this->classmap = $this->servicelocator->get('classmap');
+	public function __construct(IClassMap $classmap) {
+		$this->classmap = $classmap;
 	}
 
 	// Implementation of IBase
@@ -28,7 +27,7 @@ class CustomSearchProvider implements ISearchProvider {
 
 		$q = $_REQUEST["q"];
 
-		$searchservices = $this->classmap->getInstancesByInterface(\Base3Tools\Search\Api\ISearchService::class);
+		$searchservices = $this->classmap->getInstancesByInterface(ISearchService::class);
 		foreach ($searchservices as $searchservice)
 			$result = array_merge($result, $searchservice->search($q));
 

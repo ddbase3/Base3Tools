@@ -2,25 +2,24 @@
 
 namespace Base3Tools\Scriptlock\Custom;
 
-use Base3\Core\ServiceLocator;
-use Base3Tools\Scriptlock\Api\IScriptlock;
 use Base3\Api\ICheck;
+use Base3\Api\IClassMap;
+use Base3Tools\Scriptlock\Api\IScriptlock;
+use Base3Tools\Scriptlock\Api\IScriptlockCondition;
 
 class ScriptlockCustom implements IScriptlock, ICheck {
 
-	private $servicelocator;
 	private $classmap;
 
-	public function __construct() {
-		$this->servicelocator = ServiceLocator::getInstance();
-		$this->classmap = $this->servicelocator->get('classmap');
+	public function __construct(IClassMap $classmap) {
+		$this->classmap = $classmap;
 		if ($this->check()) $this->lock();
 	}
 
 	// Implementation of IScriptlock
 
 	public function check() {
-		$conditions = $this->classmap->getInstancesByInterface(\Base3Tools\Scriptlock\Api\IScriptlockCondition::class);
+		$conditions = $this->classmap->getInstancesByInterface(IScriptlockCondition::class);
 		foreach ($conditions as $condition)
 			if ($condition->activated() && $condition->check()) return true;
 		return false;
@@ -35,7 +34,7 @@ class ScriptlockCustom implements IScriptlock, ICheck {
 
 	public function checkDependencies() {
 		return array(
-			"depending_services" => $this->servicelocator->get('classmap') == null ? "Fail" : "Ok"
+			"check" => "Ok"
 		);
 	}
 

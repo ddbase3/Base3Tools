@@ -2,18 +2,16 @@
 
 namespace Base3Tools\Status\File;
 
-use Base3\Core\ServiceLocator;
+use Base3\Accesscontrol\Api\IAccesscontrol;
 use Base3Tools\Status\Api\IStatusHandler;
 use Base3\Api\ICheck;
 
 class FileStatusHandler implements IStatusHandler, ICheck {
 
-	private $servicelocator;
 	private $accesscontrol;
 
-	public function __construct($cnf = null) {
-		$this->servicelocator = ServiceLocator::getInstance();
-		$this->accesscontrol = $this->servicelocator->get('accesscontrol');
+	public function __construct(IAccesscontrol $accesscontrol) {
+		$this->accesscontrol = $accesscontrol;
 	}
 
 	private function getStatusFile() {

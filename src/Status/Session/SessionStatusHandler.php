@@ -2,18 +2,16 @@
 
 namespace Base3Tools\Status\Session;
 
-use Base3\Core\ServiceLocator;
-use Base3Tools\Status\Api\IStatusHandler;
 use Base3\Api\ICheck;
+use Base3\Session\Api\ISession;
+use Base3Tools\Status\Api\IStatusHandler;
 
 class SessionStatusHandler implements IStatusHandler, ICheck {
 
-	private $servicelocator;
 	private $session;
 
-	public function __construct($cnf = null) {
-		$this->servicelocator = ServiceLocator::getInstance();
-		$this->session = $this->servicelocator->get('session');
+	public function __construct(ISession $session) {
+		$this->session = $session;
 	}
 
 	// Implementation of IStatusHandler

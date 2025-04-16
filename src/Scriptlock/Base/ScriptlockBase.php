@@ -2,20 +2,16 @@
 
 namespace Base3Tools\Scriptlock\Base;
 
-use Base3\Core\ServiceLocator;
+use Base3\Configuration\Api\IConfiguration;
 use Base3Tools\Scriptlock\Api\IScriptlock;
 
 class ScriptlockBase implements IScriptlock {
 
 	private $cnf = array();
 
-	public function __construct($cnf = null) {
+	public function __construct(IConfiguration $configuration) {
 
-		if ($cnf == null) {
-			$servicelocator = ServiceLocator::getInstance();
-			$configuration = $servicelocator->get('configuration');
-			if ($configuration != null) $cnf = $configuration->get('scriptlock');
-		}
+		$cnf = $configuration->get('scriptlock');
 
 		if ($cnf != null) $this->cnf = $cnf;
 		if ($this->check()) $this->lock();
