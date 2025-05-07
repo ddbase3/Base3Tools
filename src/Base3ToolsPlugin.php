@@ -25,10 +25,7 @@ class Base3ToolsPlugin implements IPlugin {
 
 		$this->container
 
-			->set(
-				$this->getName(),
-				$this,
-				IContainer::SHARED);
+			->set($this->getName(), $this, IContainer::SHARED);
 	}
 
 }
