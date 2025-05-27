@@ -16,7 +16,7 @@ class CustomSearchProvider implements ISearchProvider {
 
 	// Implementation of IBase
 
-	public function getName() {
+	public static function getName(): string {
 		return "customsearchprovider";
 	}
 

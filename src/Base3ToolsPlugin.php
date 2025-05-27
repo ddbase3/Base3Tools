@@ -15,7 +15,7 @@ class Base3ToolsPlugin implements IPlugin {
 
 	// Implementation of IBase
 
-	public function getName() {
+	public static function getName(): string {
 		return "base3toolsplugin";
 	}
 

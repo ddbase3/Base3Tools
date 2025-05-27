@@ -17,7 +17,7 @@ class SimpleNeuralNetwork implements IAdviser {
 
 	// Implementation of IBase
 
-	public function getName() {
+	public static function getName(): string {
 		return "simpleneuralnetwork";
 	}
 
