@@ -7,11 +7,7 @@ use Base3\Api\IContainer;
 
 class Base3ToolsPlugin implements IPlugin {
 
-        private $container;
-
-        public function __construct(IContainer $container) {
-                $this->container = $container;
-        }
+        public function __construct(private readonly IContainer $container) {}
 
 	// Implementation of IBase
 
@@ -24,8 +20,6 @@ class Base3ToolsPlugin implements IPlugin {
 	public function init() {
 
 		$this->container
-
-			->set($this->getName(), $this, IContainer::SHARED);
+			->set(self::getName(), $this, IContainer::SHARED);
 	}
-
 }
