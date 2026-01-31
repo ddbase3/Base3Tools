@@ -22,7 +22,7 @@ class CustomSearchProvider implements ISearchProvider {
 
 	// Implementation of IOutput
 
-	public function getOutput($out = "html") {
+	public function getOutput(string $out = 'html', bool $final = false): string {
 		$result = array();
 
 		$q = $_REQUEST["q"];
@@ -34,8 +34,7 @@ class CustomSearchProvider implements ISearchProvider {
 		return json_encode($result);
 	}
 
-	public function getHelp() {
+	public function getHelp(): string {
 		return 'Help of CustomSearchProvider' . "\n";
 	}
-
 }

@@ -21,15 +21,14 @@ class DeviceDetectTest implements IPage {
 
 	// Implementation of IOutput
 
-	public function getOutput($out = "html") {
+	public function getOutput(string $out = 'html', bool $final = false): string {
 		$str = '<h1>DeviceDetectTest</h1>';
 		$dd = new DeviceDetect;
 		$str .= $dd->getDevice();
 		return $str;
 	}
 
-	public function getHelp() {
+	public function getHelp(): string {
 		return 'Help of DeviceDetectTest' . "\n";
 	}
-
 }

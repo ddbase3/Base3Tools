@@ -21,7 +21,7 @@ class MobileDetectTest implements IPage {
 
 	// Implementation of IOutput
 
-	public function getOutput($out = "html") {
+	public function getOutput(string $out = 'html', bool $final = false): string {
 		$str = '<h1>MobileDetectTest</h1>';
 
 		$md = new MobileDetect;
@@ -37,8 +37,7 @@ class MobileDetectTest implements IPage {
 		return $str;
 	}
 
-	public function getHelp() {
+	public function getHelp(): string {
 		return 'Help of MobileDetectTest' . "\n";
 	}
-
 }
