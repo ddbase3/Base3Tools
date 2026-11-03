@@ -34,7 +34,7 @@ class FileStatusHandler implements IStatusHandler, ICheck {
 
 	public function get($fields = null) {
 		$data = $this->loadStatus();
-		if ($data == null) return null;
+		if ($data === null) return null;
 		if ($fields == null) return $data;
 		if (!is_array($fields)) return isset($data[$fields]) ? $data[$fields] : null;
 		$result = array();

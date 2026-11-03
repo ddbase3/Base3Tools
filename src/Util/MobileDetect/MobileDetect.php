@@ -675,13 +675,13 @@ class MobileDetect
     /**
      * Construct an instance of this class.
      *
-     * @param array  $headers   Specify the headers as injection. Should be PHP _SERVER flavored.
+     * @param array|null $headers Specify the headers as injection. Should be PHP _SERVER flavored.
      *                          If left empty, will use the global _SERVER['HTTP_*'] vars instead.
      * @param string $userAgent Inject the User-Agent header. If null, will use HTTP_USER_AGENT
      *                          from the $headers array instead.
      */
     public function __construct(
-        array $headers = null,
+        ?array $headers = null,
         $userAgent = null
     ) {
         $this->setHttpHeaders($headers);
@@ -1052,7 +1052,7 @@ class MobileDetect
 
         foreach ($this->getMobileHeaders() as $mobileHeader => $matchType) {
             if (isset($this->httpHeaders[$mobileHeader])) {
-                if (is_array($matchType['matches'])) {
+                if (isset($matchType['matches']) && is_array($matchType['matches'])) {
                     foreach ($matchType['matches'] as $_match) {
                         if (strpos($this->httpHeaders[$mobileHeader], $_match) !== false) {
                             return true;
@@ -1253,7 +1253,12 @@ class MobileDetect
      */
     public function match($regex, $userAgent = null)
     {
-        $match = (bool) preg_match(sprintf('#%s#is', $regex), (false === empty($userAgent) ? $userAgent : $this->userAgent), $matches);
+        $subject = false === empty($userAgent) ? $userAgent : $this->userAgent;
+        if ($subject === null) {
+            return false;
+        }
+
+        $match = (bool) preg_match(sprintf('#%s#is', $regex), $subject, $matches);
         // If positive match is found, store the results for debug.
         if ($match) {
             $this->matchingRegex = $regex;
@@ -1309,7 +1314,7 @@ class MobileDetect
      */
     public function version($propertyName, $type = self::VERSION_TYPE_STRING)
     {
-        if (empty($propertyName)) {
+        if (empty($propertyName) || $this->userAgent === null) {
             return false;
         }
 

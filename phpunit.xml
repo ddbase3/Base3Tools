@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="test/bootstrap.php" colors="true" failOnWarning="true" failOnRisky="true">
+    <testsuites>
+        <testsuite name="Base3Tools unit tests">
+            <directory suffix="Test.php">test</directory>
+        </testsuite>
+    </testsuites>
+    <source>
+        <include>
+            <directory suffix=".php">src</directory>
+        </include>
+        <exclude>
+            <directory>src/Mailer/Full/_PHPMailer_6.0.5_geq5.5</directory>
+            <directory>src/Mailer/Full/_PHPMailer_6.0.5_lt5.5</directory>
+            <directory>src/Mailer/Full/_x</directory>
+        </exclude>
+    </source>
+</phpunit>

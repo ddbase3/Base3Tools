@@ -89,7 +89,7 @@ class BaseDesktop implements IDesktop, ICheck {
 	// Private methods
 
 	private function uuid() {
-		return md5(microtime(true));
+		return md5((string)microtime(true));
 	}
 
 }
