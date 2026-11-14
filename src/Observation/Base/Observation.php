@@ -1,9 +1,24 @@
 <?php declare(strict_types=1);
 
-namespace Base3Tools\Observation\Base;
+/***********************************************************************
+ * This file is part of Base3Tools for BASE3 Framework.
+ *
+ * Base3Tools collects reusable services and utilities for BASE3 projects.
+ * It includes file helpers, desktop abstractions and messaging utilities.
+ * Search, observation and miscellaneous tools are available as modules.
+ *
+ * Developed by Daniel Dahme
+ * Licensed under GPL-3.0
+ * https://www.gnu.org/licenses/gpl-3.0.en.html
+ *
+ * https://base3.de
+ * https://github.com/ddbase3/Base3Tools
+ **********************************************************************/
 
-use Base3\Api\IClassMap;
-use Base3Tools\Observation\Api\IObservation;
+namespace Base3\Base3Tools\Observation\Base;
+
+use Base3\CoreFoundation\Api\IClassMap;
+use Base3\Base3Tools\Observation\Api\IObservation;
 
 class Observation implements IObservation {
 
@@ -31,7 +46,7 @@ class Observation implements IObservation {
 	public function notifyObservers($name, $notificationType = null, $notificationObject = null) {
 		$data = $this->getData($name);
 		foreach ($data as $name) {
-			$observer = $this->classmap->getInstanceByInterfaceName(\Base3Tools\Observation\Api\IObserver::class, $name);
+			$observer = $this->classmap->getInstanceByInterfaceName(\Base3\Base3Tools\Observation\Api\IObserver::class, $name);
 			if ($observer != null) $observer->notify($notificationType, $notificationObject);
 		}
 	}
