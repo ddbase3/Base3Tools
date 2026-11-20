@@ -2,11 +2,11 @@
 	"manifestVersion": 1,
 	"name": "Base3Tools",
 	"namespace": "Base3\\Base3Tools",
-	"version": "1.0.0",
+	"version": "5.0.0",
 	"description": "Reusable services and utilities for BASE3 applications.",
 	"repository": "https://github.com/ddbase3/Base3Tools",
 	"dependencies": {
-		"Core": ">=4.10.0",
-		"CoreFoundation": ">=4.10.0"
+		"Core": ">=5.0.0",
+		"CoreFoundation": ">=5.0.0"
 	}
 }
